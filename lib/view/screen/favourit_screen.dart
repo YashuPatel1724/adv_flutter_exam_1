@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/jokes_provider.dart';
+import '../componets/favourite_page.dart';
 
 class FavouritScreen extends StatelessWidget {
   const FavouritScreen({super.key});
@@ -19,19 +20,9 @@ class FavouritScreen extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
       ),
-      body: ListView.builder(itemBuilder: (context, index) {
-        final jok = jokesProviderTrue.jokes[index].split('-').sublist(0,1).join('-');
-        final pun = jokesProviderTrue.jokes[index].split('-').sublist(0,1).join('-');
-        final id = jokesProviderTrue.jokes[index].split('-').sublist(0,1).join('-');
-        return Card(
-          color: Colors.teal,
-          child: ListTile(
-            leading: Text('${index+1}',style: TextStyle(color: Colors.white),),
-            title: Text('${jok}',style: TextStyle(color: Colors.white),),
-            subtitle: Text('${pun}',style: TextStyle(color: Colors.white70),),
-          ),
-        );
-      },itemCount: jokesProviderTrue.jokes.length,)
+      body: favourite(jokesProviderTrue)
     );
   }
+
+
 }
